@@ -3,6 +3,9 @@
 //    Defines the BaseView type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+using System;
+
+
 namespace MvvmCross.Weather.iOS.Views
 {
     using Cirrious.MvvmCross.Touch.Views;
@@ -33,6 +36,11 @@ namespace MvvmCross.Weather.iOS.Views
         {
             this.Initialize();
         }
+
+		protected BaseView(IntPtr handle) : base(handle)
+		{
+			this.Initialize();
+		}
 
         /// <summary>
         /// Initializes this instance.

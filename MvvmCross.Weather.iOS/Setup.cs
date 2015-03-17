@@ -5,6 +5,8 @@
 // --------------------------------------------------------------------------------------------------------------------
 using Cirrious.CrossCore;
 using MvvmCross.Weather.Core.Interfaces;
+using Cirrious.MvvmCross.Touch.Views;
+using UIKit;
 
 
 namespace MvvmCross.Weather.iOS
@@ -43,5 +45,18 @@ namespace MvvmCross.Weather.iOS
         {
             return new Core.App();
         }
+
+		protected override IMvxTouchViewsContainer CreateTouchViewsContainer ()
+		{
+			return new CustomStoryboardMvxTouchViewsContainer();
+		}
+
+		private class CustomStoryboardMvxTouchViewsContainer : MvxTouchViewsContainer
+		{
+			protected override IMvxTouchView CreateViewOfType (System.Type viewType, MvxViewModelRequest request)
+			{
+				return (IMvxTouchView)UIStoryboard.FromName("Storyboard", null).InstantiateViewController(viewType.Name);
+			}
+		}
     }
 }

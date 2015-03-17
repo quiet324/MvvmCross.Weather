@@ -17,8 +17,9 @@ namespace MvvmCross.Weather.iOS
 			set { base.ViewModel = value; }
 		}
 
-		public MainViewController () : base ("MainViewController", null)
+		public MainViewController (IntPtr handle) : base(handle)
 		{
+			
 		}
 
 		public override void ViewDidLoad ()

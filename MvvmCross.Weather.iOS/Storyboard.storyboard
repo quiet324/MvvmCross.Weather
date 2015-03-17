@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="LQq-JI-VyQ">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="vgP-pO-yUk" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L7E-k6-6md"/>
+                        <viewControllerLayoutGuide type="bottom" id="wiz-yE-wqg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="81S-um-iOF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qZ5-2G-APa">
+                                <rect key="frame" x="8" y="37" width="304" height="256"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="xVx-YV-mdl"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5I1-NK-rnV" appends="YES" id="lIK-Sf-yS7"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b41-Lb-Sdb">
+                                <rect key="frame" x="8" y="301" width="304" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPQ-G1-Iug">
+                                <rect key="frame" x="8" y="530" width="304" height="30"/>
+                                <state key="normal" title="REFRESH WEATHER">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="RefreshWeaterClick:" destination="vgP-pO-yUk" eventType="touchUpInside" id="8h4-5V-aaN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2De-qe-Exf">
+                                <rect key="frame" x="8" y="330" width="304" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CityName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGV-zf-gLY">
+                                <rect key="frame" x="8" y="8" width="304" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="b41-Lb-Sdb" secondAttribute="trailing" constant="8" id="1dD-df-nqy"/>
+                            <constraint firstItem="qZ5-2G-APa" firstAttribute="leading" secondItem="81S-um-iOF" secondAttribute="leading" constant="8" id="4KR-GX-clk"/>
+                            <constraint firstItem="uGV-zf-gLY" firstAttribute="leading" secondItem="81S-um-iOF" secondAttribute="leading" constant="8" id="8P6-XJ-nVw"/>
+                            <constraint firstAttribute="trailing" secondItem="uGV-zf-gLY" secondAttribute="trailing" constant="8" id="ALP-9R-jVP"/>
+                            <constraint firstItem="b41-Lb-Sdb" firstAttribute="top" secondItem="qZ5-2G-APa" secondAttribute="bottom" constant="8" id="FGJ-lp-2jT"/>
+                            <constraint firstAttribute="bottom" secondItem="KPQ-G1-Iug" secondAttribute="bottom" constant="8" id="H0d-dC-SFe"/>
+                            <constraint firstItem="2De-qe-Exf" firstAttribute="leading" secondItem="81S-um-iOF" secondAttribute="leading" constant="8" id="IKa-qz-mYI"/>
+                            <constraint firstAttribute="trailing" secondItem="qZ5-2G-APa" secondAttribute="trailing" constant="8" id="Jkn-5S-PRn"/>
+                            <constraint firstItem="2De-qe-Exf" firstAttribute="top" secondItem="b41-Lb-Sdb" secondAttribute="bottom" constant="8" id="N39-MB-VCv"/>
+                            <constraint firstAttribute="trailing" secondItem="2De-qe-Exf" secondAttribute="trailing" constant="8" id="N7B-Ja-fU2"/>
+                            <constraint firstItem="b41-Lb-Sdb" firstAttribute="leading" secondItem="81S-um-iOF" secondAttribute="leading" constant="8" id="OQ5-hb-PDY"/>
+                            <constraint firstItem="qZ5-2G-APa" firstAttribute="top" secondItem="uGV-zf-gLY" secondAttribute="bottom" constant="8" id="YJq-CK-qrf"/>
+                            <constraint firstItem="uGV-zf-gLY" firstAttribute="top" secondItem="81S-um-iOF" secondAttribute="top" constant="8" id="Yuw-J3-Wav"/>
+                            <constraint firstItem="KPQ-G1-Iug" firstAttribute="leading" secondItem="81S-um-iOF" secondAttribute="leading" constant="8" id="otg-Nr-fCq"/>
+                            <constraint firstAttribute="trailing" secondItem="KPQ-G1-Iug" secondAttribute="trailing" constant="8" id="skE-gp-njt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CityNameLabel" destination="uGV-zf-gLY" id="phB-lv-dE4"/>
+                        <outlet property="HumidityLabel" destination="2De-qe-Exf" id="q7F-vt-9Ak"/>
+                        <outlet property="TemperatureLabel" destination="b41-Lb-Sdb" id="vf9-72-kzZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xyD-Sj-Kdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5I1-NK-rnV">
+                    <connections>
+                        <action selector="ImageClick:" destination="vgP-pO-yUk" id="EX2-Dw-3Qh"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="243" y="407"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

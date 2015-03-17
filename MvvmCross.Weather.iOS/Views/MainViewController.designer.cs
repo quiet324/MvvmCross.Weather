@@ -34,14 +34,14 @@ namespace MvvmCross.Weather.iOS
 				CityNameLabel = null;
 			}
 
-			if (TemperatureLabel != null) {
-				TemperatureLabel.Dispose ();
-				TemperatureLabel = null;
-			}
-
 			if (HumidityLabel != null) {
 				HumidityLabel.Dispose ();
 				HumidityLabel = null;
+			}
+
+			if (TemperatureLabel != null) {
+				TemperatureLabel.Dispose ();
+				TemperatureLabel = null;
 			}
 		}
 	}
