@@ -3,6 +3,9 @@
 //    Defines the MainView type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+using MvvmCross.Weather.Core.ViewModels;
+
+
 namespace MvvmCross.Weather.Droid.Views
 {
     using Android.App;
@@ -14,6 +17,12 @@ namespace MvvmCross.Weather.Droid.Views
     [Activity(Label = "Current Weather")]
     public class MainView : BaseView
     {
+		public new MainViewModel ViewModel
+		{
+			get { return (MainViewModel) base.ViewModel; }
+			set { base.ViewModel = value; }
+		}
+
         /// <summary>
         /// Called when [create].
         /// </summary>

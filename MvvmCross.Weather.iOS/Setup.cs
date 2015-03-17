@@ -3,6 +3,10 @@
 //    Defines the Setup type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+using Cirrious.CrossCore;
+using MvvmCross.Weather.Core.Interfaces;
+
+
 namespace MvvmCross.Weather.iOS
 {
     using Cirrious.MvvmCross.Touch.Platform;
@@ -23,6 +27,13 @@ namespace MvvmCross.Weather.iOS
             : base(applicationDelegate, presenter)
         {
         }
+
+		protected override void InitializeFirstChance ()
+		{
+			base.InitializeFirstChance ();
+
+			Mvx.RegisterSingleton<IDialogService>(() => new DialogService());
+		}
 
         /// <summary>
         /// Creates the app.
