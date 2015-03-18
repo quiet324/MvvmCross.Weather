@@ -1,5 +1,20 @@
 
 ----------------------------------------------------------------------------------------------------
+18 Mar 15 16:52 Add Plugins
+----------------------------------------------------------------------------------------------------
+
+Plugin FieldBinding added to MvvmCross.Weather.Core project.
+Plugin FieldBinding added to MvvmCross.Weather.Core.Tests project.
+Plugin FieldBinding added to MvvmCross.Weather.Droid project.
+Plugin FieldBinding added to MvvmCross.Weather.iOS project.
+----------------------------------------------------------------------------------------------------
+Install-Package MvvmCross.HotTuna.Plugin.FieldBinding -FileConflictAction ignore -ProjectName MvvmCross.Weather.Core
+Install-Package MvvmCross.HotTuna.Plugin.FieldBinding -FileConflictAction ignore -ProjectName MvvmCross.Weather.iOS
+Install-Package MvvmCross.HotTuna.Plugin.FieldBinding -FileConflictAction ignore -ProjectName MvvmCross.Weather.Droid
+
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
 16 Mar 15 14:17 Add Plugins
 ----------------------------------------------------------------------------------------------------
 
