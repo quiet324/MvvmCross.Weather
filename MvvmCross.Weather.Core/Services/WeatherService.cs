@@ -9,6 +9,7 @@ using Cirrious.CrossCore;
 using Cirrious.MvvmCross.Plugins.Messenger;
 using MvvmCross.Weather.Core.Services.Messages;
 using RestSharp.Portable;
+using System.Diagnostics;
 
 namespace MvvmCross.Weather.Core.Services
 {
@@ -38,12 +39,12 @@ namespace MvvmCross.Weather.Core.Services
             request.AddParameter("units", "metric");
             request.AddParameter("APPID", OpenWeatherMapApiKey);
 
-            var result = await client.Execute<dynamic>(request);
+			var result = await client.Execute<WeatherResponse>(request);
 
-            string name = (string)result.Data["name"];
-            string temp = float.Parse((string) result.Data["main"]["temp"]).ToString("0.00") + "°C";
-            string humidity = (string)result.Data["main"]["humidity"] + "%";
-            string iconUrl = string.Format(OpenWeatherIconUrl, (string)result.Data["weather"][0]["icon"]);
+			string name = result.Data.Name;
+			string temp = result.Data.Main.Temp.ToString("0.00") + "°C";
+			string humidity = result.Data.Main.Humidity.ToString() + "%";
+			string iconUrl = string.Format(OpenWeatherIconUrl, result.Data.Weather[0].Icon);
 
             this.messenger.Publish(new WeatherMessage(this,
                 name,
@@ -51,5 +52,27 @@ namespace MvvmCross.Weather.Core.Services
                 humidity,
                 iconUrl));
         }
+
+		private class WeatherResponse : RestResponse
+		{
+			public WeatherResponse (IRestClient client, IRestRequest request) : base(client, request)
+			{
+			}
+
+			public string Name { get; set;}
+			public MainResponse Main { get; set;}
+			public List<WeatherEntry> Weather { get; set;}
+		}
+
+		private class MainResponse
+		{
+			public float Temp { get; set;}
+			public float Humidity { get; set;}
+		}
+
+		private class WeatherEntry
+		{
+			public string Icon { get; set;}
+		}
     }
 }

@@ -37,9 +37,6 @@
                                 <state key="normal" title="REFRESH WEATHER">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="RefreshWeaterClick:" destination="vgP-pO-yUk" eventType="touchUpInside" id="8h4-5V-aaN"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2De-qe-Exf">
                                 <rect key="frame" x="8" y="330" width="304" height="21"/>
@@ -76,15 +73,14 @@
                     <connections>
                         <outlet property="CityNameLabel" destination="uGV-zf-gLY" id="phB-lv-dE4"/>
                         <outlet property="HumidityLabel" destination="2De-qe-Exf" id="q7F-vt-9Ak"/>
+                        <outlet property="ImageClickTapRecognizer" destination="5I1-NK-rnV" id="oIU-iQ-BeZ"/>
+                        <outlet property="RefreshWeatherButton" destination="KPQ-G1-Iug" id="MAp-zY-M5E"/>
                         <outlet property="TemperatureLabel" destination="b41-Lb-Sdb" id="vf9-72-kzZ"/>
+                        <outlet property="WeatherIconImageView" destination="qZ5-2G-APa" id="UFF-PT-0W3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyD-Sj-Kdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="5I1-NK-rnV">
-                    <connections>
-                        <action selector="ImageClick:" destination="vgP-pO-yUk" id="EX2-Dw-3Qh"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5I1-NK-rnV"/>
             </objects>
             <point key="canvasLocation" x="243" y="407"/>
         </scene>

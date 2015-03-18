@@ -1,11 +1,13 @@
 // WARNING
 //
-// This file has been generated automatically by Xamarin Studio to store outlets and
-// actions made in the UI designer. If it is removed, they will be lost.
-// Manual changes to this file may not be handled correctly.
+// This file has been generated automatically by Xamarin Studio from the outlets and
+// actions declared in your storyboard file.
+// Manual changes to this file will not be maintained.
 //
 using Foundation;
+using System;
 using System.CodeDom.Compiler;
+using UIKit;
 
 namespace MvvmCross.Weather.iOS
 {
@@ -19,30 +21,19 @@ namespace MvvmCross.Weather.iOS
 		UIKit.UILabel HumidityLabel { get; set; }
 
 		[Outlet]
+		UIKit.UITapGestureRecognizer ImageClickTapRecognizer { get; set; }
+
+		[Outlet]
+		UIKit.UIButton RefreshWeatherButton { get; set; }
+
+		[Outlet]
 		UIKit.UILabel TemperatureLabel { get; set; }
 
-		[Action ("ImageClick:")]
-		partial void ImageClick (Foundation.NSObject sender);
+		[Outlet]
+		UIKit.UIImageView WeatherIconImageView { get; set; }
 
-		[Action ("RefreshWeaterClick:")]
-		partial void RefreshWeaterClick (Foundation.NSObject sender);
-		
 		void ReleaseDesignerOutlets ()
 		{
-			if (CityNameLabel != null) {
-				CityNameLabel.Dispose ();
-				CityNameLabel = null;
-			}
-
-			if (HumidityLabel != null) {
-				HumidityLabel.Dispose ();
-				HumidityLabel = null;
-			}
-
-			if (TemperatureLabel != null) {
-				TemperatureLabel.Dispose ();
-				TemperatureLabel = null;
-			}
 		}
 	}
 }

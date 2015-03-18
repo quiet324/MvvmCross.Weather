@@ -10,6 +10,8 @@ using Cirrious.MvvmCross.Plugins.Messenger;
 using MvvmCross.Weather.Core.Interfaces;
 using MvvmCross.Weather.Core.Services;
 using MvvmCross.Weather.Core.Services.Messages;
+using System.Diagnostics;
+using Cirrious.MvvmCross.FieldBinding;
 
 namespace MvvmCross.Weather.Core.ViewModels
 {
@@ -75,38 +77,14 @@ namespace MvvmCross.Weather.Core.ViewModels
             set { this.SetProperty(ref this.currentPositionAsString, value, () => this.CurrentPositionAsString); }
         }
 
-        private string cityName = "Refresh!";
+		public readonly INC<string> CityName = new NC<string> ("--- Cityname ---");
 
-        public string CityName
-        {
-            get { return this.cityName; }
-            set { this.SetProperty(ref this.cityName, value, () => this.CityName); }
-        }
+		public readonly INC<string> Temperature = new NC<string> ("--- Temperature ---");
 
-        private string temperature = "-100°C";
+		public readonly INC<string> Humidity = new NC<string> ("--- Humidity ---");
 
-        public string Temperature
-        {
-            get { return this.temperature; }
-            set { this.SetProperty(ref this.temperature, value, () => this.Temperature); }
-        }
-
-        private string humidity = "110%";
-
-        public string Humidity
-        {
-            get { return this.humidity; }
-            set { this.SetProperty(ref this.humidity, value, () => this.Humidity); }
-        }
-
-        private string weatherIconUrl =
-            "http://files.softicons.com/download/web-icons/android-weather-icons-by-bharath-prabhuswamy/png/256x256/Slight%20Drizzle.png";
-
-        public string WeatherIconUrl
-        {
-            get { return this.weatherIconUrl; }
-            set { this.SetProperty(ref this.weatherIconUrl, value, () => this.WeatherIconUrl); }
-        }
+		public readonly INC<string> WeatherIconUrl = new NC<string> (
+			"http://img2.wikia.nocookie.net/__cb20140118173446/wiisportsresortwalkthrough/images/6/60/No_Image_Available.png");
 
         public MainViewModel(IMvxMessenger messenger,
             ILocationService locationService,
@@ -158,10 +136,10 @@ namespace MvvmCross.Weather.Core.ViewModels
 
         private void OnWeatherMessage(WeatherMessage weatherMessage)
         {
-            this.CityName = weatherMessage.CityName;
-            this.Temperature = weatherMessage.Temperature;
-            this.Humidity = weatherMessage.Humidity;
-            this.WeatherIconUrl = weatherMessage.WeatherIconUrl;
+			this.CityName.Value = weatherMessage.CityName;
+			this.Temperature.Value = weatherMessage.Temperature;
+			this.Humidity.Value = weatherMessage.Humidity;
+			this.WeatherIconUrl.Value = weatherMessage.WeatherIconUrl;
         }
     }
 }
